@@ -21,7 +21,7 @@ class Va11Presence(Presence):
 
     def update_from_save(self, save: Save):
         self.update(start=int(self.start),
-                    large_image="panz_san_jill",
+                    large_image="panz_san_jill",  # Tnx to reddit user u/PanzSan
                     large_text="NG+" if save["ngplus_flag"] else "Anna",
                     state="Day " + str(save["cur_day"]),
                     details="Very Good Bartender VN")
