@@ -10,7 +10,7 @@ USE_DATE_STRING = True
 
 def check_saves_path(path):
     try:
-        saves_path = [os.path.join(path, x) for x in os.listdir(path) if "Record of Waifu Wars" in x]
+        saves_path = [os.path.join(path, x) for x in os.listdir(path) if "Record of Waifu Wars" in x or "record of waifu wars" in x]
     except FileNotFoundError:
         return False
     if not saves_path:
