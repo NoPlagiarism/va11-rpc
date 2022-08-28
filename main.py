@@ -21,7 +21,7 @@ class Va11Presence(Presence):
 
     def update_from_save(self, save: Save):
         self.update(start=int(self.start),
-                    large_image="main_anna_big",
+                    large_image="panz_san_jill",
                     large_text="NG+" if save["ngplus_flag"] else "Anna",
                     state="Day " + str(save["cur_day"]),
                     details="Very Good Bartender VN")
@@ -52,7 +52,7 @@ def main():
     config = configparser.ConfigParser(inline_comment_prefixes="#", comment_prefixes=('#',), allow_no_value=True)
     config.read("config.ini")
 
-    save_path = os.path.expandvars(config.get("DEFAULT", "SavePath", raw=True))
+    save_path = os.path.expanduser(config.get("DEFAULT", "SavePath", raw=True))
     discord_app_id = config.getint("DEFAULT", "DiscordAppId")
     path_find_attempt_accepted = bool(config.getint("DONOTEDIT", "PathFindAttemptAccepted"))
 
@@ -74,7 +74,7 @@ def main():
     except FileNotFoundError as e:
         raise Va11SavesNotFound
     presence.update_from_save(newest)
-    event_handler = SaveDirHandler([".*Record of Waifu Wars\[\d{1,2}\]\.txt"], callback=presence.update_from_save)
+    event_handler = SaveDirHandler([".*[rR]ecord of [wW]aifu [wW]ars\[\d{1,2}\]\.txt"], callback=presence.update_from_save)
     observer = Observer()
     try:
         observer.schedule(event_handler, save_path, recursive=False)
