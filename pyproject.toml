@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "va11-discord-rpc"
+version = "0.2.0"
+description = "Discord Rich Presence for VA-11 HALL-A"
+authors = ["NoPlagiarism <37241775+NoPlagiarism@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+tomlkit = "^0.12.1"
+pypresence = "^4.3.0"
+pyqt6 = "^6.5.2"
+strenum = "^0.4.15"
+loguru = "^0.7.0"
+loguru-logging-intercept = "^0.1.3"
+platformdirs = "^3.10.0"
+pydantic = "^2.1.1"
+typing-extensions = "^4.7.1"
+httpx = "^0.24.1"
+
+
+[tool.poetry.scripts]
+va11rpc = "src.va11rpc.main:main"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
